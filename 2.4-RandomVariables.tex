@@ -1,0 +1,116 @@
+\subsection{Random Variables}
+\tsDef{2.25 (Random Variable)}{
+    A \emph{random variable} is a function
+    \[
+        X : \Omega \to \mathbb{R},
+    \]
+    where $\Omega$ is the sample space.
+}
+\\
+\tsDef{2.27 (Expectation)}{
+    For a random variable $X$, the \emph{expectation} is defined by
+    \[
+        \mathbb{E}[X]
+        :=
+        \sum_{x\in W_X} x \cdot \Pr[X = x],
+    \]
+    provided the sum converges absolutely. Otherwise, the expectation is said to be undefined.
+}
+\\
+\tsLem{2.29 (Expectation via Elementary Outcomes)}{
+    Let $X$ be a random variable. Then
+    \[
+        \mathbb{E}[X]
+        =
+        \sum_{\omega\in\Omega} X(\omega)\cdot \Pr[\omega].
+    \]
+}
+\tsThe{2.30 (Expectation via Tail Probabilities)}{
+    Let $X$ be a random variable with values in $\mathbb{N}_0$. Then
+    \[
+        \mathbb{E}[X]
+        =
+        \sum_{i=1}^{\infty} \Pr[X \ge i].
+    \]
+}
+\tsThe{2.32 (Law of Total Expectation)}{
+    Let $X$ be a random variable and let $A_1,\dots,A_n$ be pairwise disjoint events with
+    \[
+        A_1\cup\cdots\cup A_n = \Omega,
+        \quad
+        \Pr[A_i] > 0.
+    \]
+    Then
+    \[
+        \mathbb{E}[X]
+        =
+        \sum_{i=1}^n \mathbb{E}[X\mid A_i]\cdot \Pr[A_i].
+    \]
+    Analogously, for pairwise disjoint events $A_1,A_2,\dots$ with
+    \[
+        \bigcup_{i=1}^{\infty} A_i = \Omega,
+    \]
+    we have
+    \[
+        \mathbb{E}[X]
+        =
+        \sum_{i=1}^{\infty} \mathbb{E}[X\mid A_i]\cdot \Pr[A_i].
+    \]
+}
+\tsDef{2.35 (Indicator Random Variable)}{
+    For an event $A \subseteq \Omega$, the associated \emph{indicator random variable} $X_A$ is defined by
+    \[
+        X_A(\omega) :=
+        \begin{cases}
+            1, & \text{if } \omega \in A, \\
+            0, & \text{otherwise.}
+        \end{cases}
+    \]
+    Its expectation satisfies
+    \[
+        \mathbb{E}[X_A] = \Pr[A].
+    \]
+}
+\tsDef{2.39 (Variance and Standard Deviation)}{
+    For a random variable $X$ with $\mu = \mathbb{E}[X]$, the \emph{variance} is defined by
+    \[
+        \mathrm{Var}[X]
+        :=
+        \mathbb{E}[(X - \mu)^2]
+        =
+        \sum_{x \in W_X} (x - \mu)^2 \cdot \Pr[X = x].
+    \]
+    The quantity
+    \[
+        \sigma := \sqrt{\mathrm{Var}[X]}
+    \]
+    is called the \emph{standard deviation}.
+}
+\\
+\tsThe{2.40 (Variance Formula)}{
+    For any random variable $X$,
+    \[
+        \mathrm{Var}[X]
+        =
+        \mathbb{E}[X^2] - (\mathbb{E}[X])^2.
+    \]
+}
+\tsThe{2.41 Scaling of Variance}{
+    For any random variable $X$ and $a,b \in \mathbb{R}$,
+    \[
+        \mathrm{Var}[aX + b] = a^2 \, \mathrm{Var}[X].
+    \]
+}
+\tsDef{2.42 (Moments)}{
+    For a random variable $X$, the quantity
+    \[
+        \mathbb{E}[X^k]
+    \]
+    is called the \emph{$k$-th moment}.
+
+    The quantity
+    \[
+        \mathbb{E}[(X - \mathbb{E}[X])^k]
+    \]
+    is called the \emph{$k$-th central moment}.
+}

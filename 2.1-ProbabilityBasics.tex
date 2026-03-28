@@ -1,0 +1,114 @@
+\subsection{Probability Basics}
+\tsDef{2.1 (Discrete Probability Space)}{
+    A \emph{discrete probability space} is determined by a sample space
+    \[
+        \Omega = \{\omega_1,\omega_2,\dots\}
+    \]
+    of elementary outcomes.
+    To each elementary outcome $\omega_i$ a probability $\Pr[\omega_i]$ is assigned such that
+    \[
+        0 \le \Pr[\omega_i] \le 1
+    \]
+    and
+    \[
+        \sum_{\omega \in \Omega} \Pr[\omega] = 1.
+    \]
+    A subset $E \subseteq \Omega$ is called an \emph{event}. The probability of an event is defined by
+    \[
+        \Pr[E] := \sum_{\omega \in E} \Pr[\omega].
+    \]
+    If $E$ is an event, then
+    \[
+        \bar E := \Omega \setminus E
+    \]
+    is called the \emph{complement} of $E$.
+}
+\\
+\tsLem{2.2 (Basic Properties of Probabilities)}{
+    For events $A,B$ the following hold:
+    \begin{itemize}
+        \item[(1)]
+              \[
+                  \Pr[\varnothing] = 0,
+                  \qquad
+                  \Pr[\Omega] = 1.
+              \]
+        \item[(2)]
+              \[
+                  0 \le \Pr[A] \le 1.
+              \]
+        \item[(3)]
+              \[
+                  \Pr[\bar A] = 1 - \Pr[A].
+              \]
+        \item[(4)] If $A \subseteq B$, then
+              \[
+                  \Pr[A] \le \Pr[B].
+              \]
+    \end{itemize}
+}
+\tsThe{2.3 (Addition Theorem)}{
+    Let $A_1,\dots,A_n$ be pairwise disjoint events, that is,
+    \[
+        A_i \cap A_j = \varnothing
+        \quad\text{for all } i\ne j.
+    \]
+
+    Then
+    \[
+        \Pr\!\left[\bigcup_{i=1}^n A_i\right]
+        =
+        \sum_{i=1}^n \Pr[A_i].
+    \]
+
+    Analogously, for an infinite family of pairwise disjoint events $A_1,A_2,\dots$,
+    \[
+        \Pr\!\left[\bigcup_{i=1}^{\infty} A_i\right]
+        =
+        \sum_{i=1}^{\infty} \Pr[A_i].
+    \]
+}
+\tsThe{2.5 (Inclusion-Exclusion Principle)}{
+    For events $A_1,\dots,A_n$ with $n\ge2$,
+    \[
+        \Pr\!\left[\bigcup_{i=1}^n A_i\right]
+        =
+        \sum_{l=1}^n (-1)^{l+1}
+        \sum_{1\le i_1<\cdots<i_l\le n}
+        \Pr[A_{i_1}\cap\cdots\cap A_{i_l}].
+    \]
+    Equivalently,
+    \begin{align*}
+        \Pr\!\left[\bigcup_{i=1}^n A_i\right]
+         & = \sum_{i=1}^n \Pr[A_i]                                            \\
+         & - \sum_{1\le i_1<i_2\le n}\Pr[A_{i_1}\cap A_{i_2}]                 \\
+         & + \sum_{1\le i_1<i_2<i_3\le n}\Pr[A_{i_1}\cap A_{i_2}\cap A_{i_3}] \\
+         & - \cdots                                                           \\
+         & + (-1)^{n+1}\Pr[A_1\cap\cdots\cap A_n].
+    \end{align*}
+}
+\tsCor{2.5 (Boolean inequality, Union Bound)}{
+    For events $A_1,\dots,A_n$,
+    \[
+        \Pr\!\left[\bigcup_{i=1}^n A_i\right]
+        \le
+        \sum_{i=1}^n \Pr[A_i].
+    \]
+    Analogously, for an infinite sequence of events $A_1,A_2,\dots$,
+    \[
+        \Pr\!\left[\bigcup_{i=1}^{\infty} A_i\right]
+        \le
+        \sum_{i=1}^{\infty} \Pr[A_i].
+    \]
+}
+\tsThe{Laplace Principle}{
+    Under the Laplace principle, all elementary outcomes have the same probability:
+    \[
+        \Pr[\omega] = \frac{1}{|\Omega|}
+        \quad\text{for all elementary outcomes } \omega.
+    \]
+    Hence for any event $E$,
+    \[
+        \Pr[E] = \frac{|E|}{|\Omega|}.
+    \]
+}

@@ -1,0 +1,60 @@
+\subsection{Matching}
+\tsDef{1.44 (Matching)}{
+    A set of edges $M\subseteq E$ is called a \emph{matching} in a graph $G=(V,E)$ if no vertex of the graph is incident to more than one edge of $M$, i.e.
+    \[
+        e \cap f = \varnothing \quad \text{for all } e,f\in M,\ e\ne f.
+    \]
+    A vertex $v$ is said to be \emph{covered} by $M$ if there exists an edge $e\in M$ containing $v$. A matching $M$ is called a \emph{perfect matching} if every vertex is covered by exactly one edge of $M$, equivalently $|M|=|V|/2$.
+}
+\\
+\tsDef{1.46 (Matching set)}{
+    Let $G=(V,E)$ be a graph and $M$ a matching in $G$.
+    \begin{itemize}
+        \item $M$ is called \emph{inclusion-maximal} if $M\cup\{e\}$ is not a matching for all edges $e\in E\setminus M$.
+        \item $M$ is called \emph{maximum (cardinality)} if $|M|\ge |M'|$ for all matchings $M'$ in $G$.
+    \end{itemize}
+    In the English literature, the abbreviated terminology is common: a \emph{maximal matching} denotes an inclusion-maximal matching, whereas a \emph{maximum matching} denotes a maximum-cardinality matching.
+}
+\\
+\tsThe{1.47 (Greedy-Matching)}{The algorithm \textsc{Greedy-Matching} computes in time $O(|E|)$ an inclusion-maximal matching $M_{\text{Greedy}}$ such that
+    \[
+        |M_{\text{Greedy}}| \ge \tfrac12 |M_{\max}|,
+    \]
+    where $M_{\max}$ is a maximum-cardinality matching.
+}
+\\
+\tsThe{1.48 (Berge's Theorem)}{
+    Let $M$ be a matching in a graph $G=(V,E)$ that is not maximum (in cardinality). Then there exists an augmenting path with respect to $M$.
+}
+\\
+\tsThe{1.49 (Hopcroft-Karp algorithm runtime)}{
+    The Hopcroft--Karp algorithm executes the while-loop only $O(\sqrt{|V|})$ times. Therefore it computes a maximum matching in a bipartite graph in time $O(\sqrt{|V|}\,(|V|+|E|))$.
+}
+\\
+\tsThe{1.50 (Time of finding minimum perfect matching)}{
+    Let $n$ be even and let $\ell: \binom{[n]}{2} \to \mathbb{N}_0$ be a weight function of the complete graph $K_n$. Then a minimum perfect matching can be found in time $O(n^3)$, i.e. a perfect matching $M$ with
+    \[
+        \sum_{e\in M} \ell(e)=\min\left\{\sum_{e\in M'} \ell(e)\mid M' \text{ perfect matching in } K_n\right\}.
+    \]
+}
+\\
+\tsThe{1.51 ($3/2$-approximation algorithm for TSP runtime)}{
+    For the metric Traveling Salesman Problem there exists a $3/2$-approximation algorithm with running time $O(n^3)$.
+}
+\\
+\tsThe{1.52 (Hall's Theorem / Heiratssatz)}{
+    For a bipartite graph $G=(A\uplus B,E)$ there exists a matching $M$ of cardinality $|M|=|A|$ if and only if
+    \[
+        |N(X)|\ge |X| \quad \text{for all } X\subseteq A.
+    \]
+}
+\\
+\tsThe{1.53 (Disjoint perfect mathcings in $k$-regular bi. grphs.)}{
+    Let $G=(A\uplus B,E)$ be a $k$-regular bipartite graph. Then there exist $M_1,\dots,M_k$ such that $E=M_1\uplus\cdots\uplus M_k$ and all $M_i$, $1\le i\le k$, are perfect matchings in $G$.
+}
+\\
+\tsThe{1.54 (Runtime - find perf. matching in $2^k$-reg. bip. g.)}{
+    If $G=(V,E)$ is a $2^k$-regular bipartite graph, then a perfect matching can be found in time $O(|E|)$.
+}
+
+

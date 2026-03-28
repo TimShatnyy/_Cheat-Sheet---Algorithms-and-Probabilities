@@ -1,0 +1,74 @@
+\subsection{Conditional Probability}
+\tsDef{2.8 (Conditional Probability)}{
+    Let $A$ and $B$ be events with $\Pr[B]>0$.
+    The \emph{conditional probability} of $A$ given $B$ is defined by
+    \[
+        \Pr[A\mid B]
+        :=
+        \frac{\Pr[A\cap B]}{\Pr[B]}.
+    \]
+}
+\tsThe{2.10 (Multiplication Theorem)}{
+    Let $A_1,\dots,A_n$ be events. If
+    \[
+        \Pr[A_1\cap\cdots\cap A_n] > 0,
+    \]
+    then
+    \[
+        \Pr[A_1\cap\cdots\cap A_n]
+        =
+        \Pr[A_1]\cdot
+        \Pr[A_2\mid A_1]\cdot
+        \Pr[A_3\mid A_1\cap A_2]
+        \cdots
+        \Pr[A_n\mid A_1\cap\cdots\cap A_{n-1}].
+    \]
+}
+\tsThe{2.13 (Law of Total Probability)}{
+    Let $A_1,\dots,A_n$ be pairwise disjoint events and suppose that
+    \[
+        B \subseteq A_1\cup\cdots\cup A_n.
+    \]
+    Then
+    \[
+        \Pr[B]
+        =
+        \sum_{i=1}^n \Pr[B\mid A_i]\cdot \Pr[A_i].
+    \]
+    Analogously, for pairwise disjoint events $A_1,A_2,\dots$ with
+    \[
+        B \subseteq \bigcup_{i=1}^{\infty} A_i,
+    \]
+    we have
+    \[
+        \Pr[B]
+        =
+        \sum_{i=1}^{\infty} \Pr[B\mid A_i]\cdot \Pr[A_i].
+    \]
+}
+\tsThe{2.15 (Bayes' Theorem)}{
+    Let $A_1,\dots,A_n$ be pairwise disjoint events, and let $B \subseteq A_1\cup\cdots\cup A_n$ be an event with $\Pr[B]>0$.
+    Then for any $i=1,\dots,n$,
+    \[
+        \Pr[A_i\mid B]
+        =
+        \frac{\Pr[A_i\cap B]}{\Pr[B]}
+        =
+        \frac{\Pr[B\mid A_i]\cdot \Pr[A_i]}
+        {\sum_{j=1}^n \Pr[B\mid A_j]\cdot \Pr[A_j]}.
+    \]
+    Analogously, for pairwise disjoint events $A_1,A_2,\dots$ with
+    \[
+        B \subseteq \bigcup_{i=1}^{\infty} A_i,
+    \]
+    we have
+    \[
+        \Pr[A_i\mid B]
+        =
+        \frac{\Pr[A_i\cap B]}{\Pr[B]}
+        =
+        \frac{\Pr[B\mid A_i]\cdot \Pr[A_i]}
+        {\sum_{j=1}^{\infty} \Pr[B\mid A_j]\cdot \Pr[A_j]}.
+    \]
+}
+

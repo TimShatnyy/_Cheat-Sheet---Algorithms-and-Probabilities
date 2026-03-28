@@ -1,0 +1,37 @@
+\subsection{Independence}
+\tsDef{2.19 (Independence)}{
+    Two events $A$ and $B$ are called \emph{independent} if
+    \[
+        \Pr[A\cap B] = \Pr[A]\cdot \Pr[B].
+    \]
+}
+\tsDef{2.22 (Independence of Events)}{
+    Events $A_1,\dots,A_n$ are called \emph{independent} if for every subset
+    $I \subseteq \{1,\dots,n\}$ with $I = \{i_1,\dots,i_k\}$ it holds that
+    \[
+        \Pr[A_{i_1}\cap \cdots \cap A_{i_k}]
+        =
+        \Pr[A_{i_1}] \cdots \Pr[A_{i_k}].
+    \]
+    An infinite family of events $(A_i)_{i\in\mathbb{N}}$ is called independent if this condition holds for every finite subset.
+}
+\\
+\tsLem{2.23 (Characterization of Independence)}{
+    Events $A_1,\dots,A_n$ are independent if and only if for all $(s_1,\dots,s_n)\in\{0,1\}^n$,
+    \[
+        \Pr[A_1^{s_1}\cap \cdots \cap A_n^{s_n}]
+        =
+        \Pr[A_1^{s_1}] \cdots \Pr[A_n^{s_n}],
+    \]
+    where $A_i^0 = \bar A_i$ and $A_i^1 = A_i$.
+}
+\\
+\tsLem{2.24 (Stability of Independence)}{
+    Let $A,B,C$ be independent events. Then also
+    \[
+        A\cap B \text{ and } C
+        \quad \text{as well as} \quad
+        A\cup B \text{ and } C
+    \]
+    are independent.
+}
